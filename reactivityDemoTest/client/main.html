@@ -1,0 +1,120 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>reactivityDemoTest</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <!--<a class="navbar-brand" href="#">Project name</a>-->
+            </div>
+            <!--<div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>-->
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!--<h1>Welcome to Meteor!</h1>-->
+    <!--{{> playersData}} -->
+    <!--{{> hello}} -->
+    <!--{{> info}}-->
+</body>
+
+<template name="playersData">
+
+    {{#if Template.subscriptionsReady}}
+    <pre>
+    {{# each loadallplayers}} {{ name }} {{ score }} {{/ each}}
+    <hr> {{# each searchPlayerDavid}} {{ name }} {{ score }} {{/ each}}
+     <hr> {{# each showDavidMap}} {{ text }} {{ score }} {{/ each}}
+    <form class="insert">
+      <input type="text" name="playerName">
+      <button type="submit">Insert</button>
+    </form>
+      
+      <input type="text" id="deleteName">
+      <button id="deleteButton">Delete</button>
+    
+  </pre>
+    <!--{{#if hasMorePosts}}
+      <a class="load-more" href="#">Load More</a>
+    {{/if}}-->
+    {{else}}
+    <!--<div class="loading">{{>spinner}}</div>-->
+    {{/if}}
+
+
+</template>
+
+<template name="hello">
+    <!--<pre>
+  {{# each allPlayers}}
+    {{ name }} {{ score }}
+  {{/ each}}
+  </pre>-->
+    <button>Click Me</button>
+    <p>You've pressed the button {{counter}} times.</p>
+
+</template>
+
+<template name="info">
+    <h2>Learn Meteor!</h2>
+    <ul>
+        <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
+        <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
+        <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
+        <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
+    </ul>
+
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Column heading</th>
+                <th>Column heading</th>
+                <th>Column heading</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <th scope="row">1</th>
+                <td>Column content</td>
+                <td>Column content</td>
+                <td>Column content</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Column content</td>
+                <td>Column content</td>
+                <td>Column content</td>
+            </tr>
+            <tr class="success">
+                <th scope="row">3</th>
+                <td>Column content</td>
+                <td>Column content</td>
+                <td>Column content</td>
+            </tr>
+        </tbody>
+    </table>
+
+</template>
+
+<template name="mainLayout">
+    <div class="container">
+        <header>
+            <h1>Welcome to Meteor!</h1>
+        </header>
+        <main>
+            {{>Template.dynamic template=content}}
+        </main>
+        <footer>This is footer</footer>
+    </div>
+</template>
